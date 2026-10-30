@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Taku creator plugin manifest",
+  "type": "object",
+  "required": ["name", "version", "description", "taku"],
+  "properties": {
+    "name": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+([-.][A-Za-z0-9.-]+)?$"},
+    "description": {"type": "string", "pattern": "\\S"},
+    "skills": {"type": "string", "minLength": 1},
+    "mcpServers": {"type": "string", "minLength": 1},
+    "taku": {
+      "type": "object", "required": ["capabilities", "permissions"],
+      "properties": {
+        "capabilities": {"type": "array", "items": {"type": "string", "pattern": "\\S"}},
+        "permissions": {"type": "array", "items": {"type": "string", "pattern": "\\S"}}
+      }
+    }
+  },
+  "anyOf": [{"required": ["skills"]}, {"required": ["mcpServers"]}]
+}
