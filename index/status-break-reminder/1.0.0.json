@@ -1,0 +1,13 @@
+{
+  "name": "status-break-reminder",
+  "version": "1.0.0",
+  "description": "Reusable status reminder that prints: Take a short break.",
+  "package": "packages\/status-break-reminder-1.0.0.zip",
+  "sha256": "3e1d3ccb86840d7ff572d9ad2ef9641a4c26890dd36734d77a4a734dc154b9bb",
+  "taku": {
+    "capabilities": [
+      "shell-script"
+    ],
+    "permissions": []
+  }
+}
