@@ -48,8 +48,10 @@ Agent 会帮你打包、测试，然后在这里提一个 PR。维护者审核�
 
 ## 第一个例子
 
-[`status-break-reminder`](https://github.com/Taku-OS/taku-os-plugins/pull/1)——一个提醒你歇一会儿的小插件。它从头到尾都是 Agent 根据一句话自己做出来、自己发布的。
+[Hello World 完整源码](examples/taku-hello-world/) · [安装包](packages/taku-hello-world-1.0.0.zip) · [SHA-256](index/taku-hello-world/1.0.0.json)。完整安装、Agent 调用、卸载和测试范围见示例 README。
 
 ## 许可证
 
 [Apache-2.0](LICENSE)。除非插件目录里另有说明，贡献的插件都按同一许可证发布。
+
+安全问题请使用[私密报告入口](SECURITY.md)，不要公开漏洞详情或私人数据。

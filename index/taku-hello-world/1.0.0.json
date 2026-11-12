@@ -1,0 +1,16 @@
+{
+  "name": "taku-hello-world",
+  "version": "1.0.0",
+  "description": "Return a local greeting through the Agent. No network or personal data.",
+  "author": {
+    "name": "Taku OS"
+  },
+  "taku": {
+    "capabilities": [
+      "return a local greeting"
+    ],
+    "permissions": []
+  },
+  "package": "packages/taku-hello-world-1.0.0.zip",
+  "sha256": "31302e63c9cff51c39d47b07f27c43371682b8a41170ff10993b02d89e4e70e0"
+}

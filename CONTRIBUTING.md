@@ -32,3 +32,15 @@ Thanks for sharing a plugin! The easiest path is to let your TakuOS Agent publis
 Passing CI is required, but it isn't the same as approval. Maintainers may ask for changes or decline submissions that look unsafe.
 
 CI 通过是必要条件，但不等于审核通过。看起来不安全的提交，维护者会要求修改或拒绝。
+
+## Publish from a computer / 从电脑提交
+
+If the phone has no authenticated git/gh, clone this public repository on your computer and run:
+
+```sh
+python3 scripts/publish-from-device.py --serial SERIAL --packed OUTPUT_DIR
+```
+
+`OUTPUT_DIR` is the device output from `taku-plugin publish`. The helper verifies package paths and SHA-256, creates a branch in your own fork, and returns the PR URL. It uses your computer's existing GitHub login without copying credentials to the device. Run it only when you intend to submit the plugin.
+
+手机没有 git/gh 时，从本公开仓库取得脚本即可；无需私有 Taku OS 源码权限。它使用电脑上已有的 GitHub 登录，校验包后提交到自己的 fork，再创建社区 PR。
