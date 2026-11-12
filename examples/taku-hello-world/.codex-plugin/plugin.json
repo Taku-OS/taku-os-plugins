@@ -1,6 +1,6 @@
 {
   "name": "taku-hello-world",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Return a local greeting through the Agent. No network or personal data.",
   "author": {
     "name": "Taku OS"

@@ -48,7 +48,7 @@ Agent 会帮你打包、测试，然后在这里提一个 PR。维护者审核�
 
 ## 第一个例子
 
-[Hello World 完整源码](examples/taku-hello-world/) · [安装包](packages/taku-hello-world-1.0.0.zip) · [SHA-256](index/taku-hello-world/1.0.0.json)。完整安装、Agent 调用、卸载和测试范围见示例 README。
+[Hello World 完整源码](examples/taku-hello-world/) · [安装包](packages/taku-hello-world-1.0.1.zip) · [SHA-256](index/taku-hello-world/1.0.1.json)。完整安装、Agent 调用、卸载和测试范围见示例 README。
 
 ## 许可证
 

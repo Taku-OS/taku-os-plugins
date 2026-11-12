@@ -6,9 +6,16 @@ This is a community Skill/MCP plugin, not a God Mode package. It returns `Hello 
 
 ## Install / 安装
 
-Download the ZIP from `packages/` and compare SHA-256 with `index/taku-hello-world/1.0.0.json`. Unzip it, then copy the `taku-hello-world` directory to your own Taku device. Replace `SERIAL` with the selected device:
+Download the ZIP from `packages/` and compare SHA-256 with `index/taku-hello-world/1.0.1.json`. Unzip it, then copy the `taku-hello-world` directory to your own Taku device. Replace `SERIAL` with the selected device:
+
+Only supported Taku userdebug development images can use the root ADB route below. If `adb root` is refused, stop; do not apply it to a stock production image. The plugin work directory is root-owned.
+
+以下电脑安装路径需要支持 root ADB 的 Taku userdebug 开发镜像。若 `adb root` 被拒绝就停止，不适用于原厂生产系统。
 
 ```sh
+adb -s SERIAL root
+adb -s SERIAL wait-for-device
+adb -s SERIAL shell id
 adb -s SERIAL push taku-hello-world /data/local/agentos/work/
 adb -s SERIAL shell
 ```
