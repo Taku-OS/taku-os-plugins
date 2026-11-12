@@ -48,7 +48,7 @@ Want to do it yourself, or curious what reviewers look for? See [CONTRIBUTING.md
 
 ## First example
 
-[Hello World source](examples/taku-hello-world/) includes every file needed; no private repository access is required. [Download the ZIP](packages/taku-hello-world-1.0.0.zip) and [verify its SHA-256](index/taku-hello-world/1.0.0.json), then follow the example's installation, Agent-call and uninstall steps. Host protocol and package checks are automated; device/Agent acceptance is a separate step.
+[Hello World source](examples/taku-hello-world/) includes every file needed; no private repository access is required. [Download the ZIP](packages/taku-hello-world-1.0.1.zip) and [verify its SHA-256](index/taku-hello-world/1.0.1.json), then follow the example's installation, Agent-call and uninstall steps. Host protocol and package checks are automated; device/Agent acceptance is a separate step.
 
 ## Security
 
