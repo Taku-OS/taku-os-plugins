@@ -15,4 +15,6 @@ jobs:
       - run: python scripts/test-example.py
       - run: python scripts/test-package.py
       - run: python scripts/package-example.py
+      - run: python scripts/package-example.py status-break-reminder
+      - run: test "$(sh examples/status-break-reminder/scripts/status.sh)" = 'Take a short break.'
       - run: git diff --exit-code -- packages/ index/
