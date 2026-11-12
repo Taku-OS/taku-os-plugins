@@ -1,0 +1,28 @@
+name: Bug report / 问题反馈
+description: Report a reproducible Taku OS or plugin problem without private data.
+body:
+  - type: markdown
+    attributes:
+      value: "For security issues use the private advisory form. Never post credentials, personal chats or user data."
+  - type: input
+    id: version
+    attributes:
+      label: Component, version and complete build number
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device, Android version and relevant permissions
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps, expected result and actual result
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Minimal redacted evidence

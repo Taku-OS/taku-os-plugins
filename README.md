@@ -8,7 +8,7 @@ The idea is simple: if you've solved something useful on your phone — a remind
 
 > "Turn what we just did into a plugin and publish it to the community."
 
-The Agent packages it, tests it, and opens a pull request here. Once a maintainer reviews and merges it, every TakuOS user can find and install it.
+A compatible Agent can prepare and test the package. Submitting a PR requires authenticated git/gh on the device or the documented host-side publishing helper. A PR URL confirms submission; a local package alone does not. Maintainers review contributions before users install them.
 
 ## What's a plugin?
 
@@ -42,13 +42,17 @@ You don't need to know any of the formats below — the Agent handles them. Just
 
 1. Validate and test the plugin on your phone (install → run → uninstall).
 2. Package it into `packages/<name>-<version>.zip` plus a record in `index/<name>/<version>.json`.
-3. Open a pull request here. If you're offline, everything stays saved locally until you're connected.
+3. Submit through authenticated git/gh, or keep the package locally and use the host-side publishing helper. A network connection alone does not configure publishing credentials.
 
 Want to do it yourself, or curious what reviewers look for? See [CONTRIBUTING.md](CONTRIBUTING.md) and the [manifest format](plugins/README.md).
 
 ## First example
 
-[`status-break-reminder`](https://github.com/Taku-OS/taku-os-plugins/pull/1) — a tiny plugin that reminds you to take a break. It was created and published end-to-end by the Agent from a single sentence.
+[Hello World source](examples/taku-hello-world/) includes every file needed; no private repository access is required. [Download the ZIP](packages/taku-hello-world-1.0.0.zip) and [verify its SHA-256](index/taku-hello-world/1.0.0.json), then follow the example's installation, Agent-call and uninstall steps. Host protocol and package checks are automated; device/Agent acceptance is a separate step.
+
+## Security
+
+Use the [private reporting instructions](SECURITY.md) for Taku OS or plugin vulnerabilities.
 
 ## License
 

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "hello-world": {
+      "command": "/system/bin/sh",
+      "args": [
+        "./server.sh"
+      ],
+      "cwd": "."
+    }
+  }
+}
