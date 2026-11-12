@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Build the source-controlled Hello World sample with deterministic ZIP metadata."""
+"""Build a source-controlled example with deterministic ZIP metadata."""
+import argparse
 import hashlib
 import io
 import json
@@ -8,7 +9,15 @@ import re
 import zipfile
 
 root = Path(__file__).resolve().parents[1]
-source = root / 'examples/taku-hello-world'
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('example', nargs='?', default='taku-hello-world')
+args = parser.parse_args()
+if not re.fullmatch(r'[a-z0-9][a-z0-9-]{0,63}', args.example):
+    raise SystemExit('Invalid example name')
+source = root / 'examples' / args.example
+if source.is_symlink() or not source.is_dir():
+    raise SystemExit('Example must be a real source directory')
+source.resolve().relative_to((root / 'examples').resolve())
 manifest = json.loads((source / '.codex-plugin/plugin.json').read_text())
 name, version = manifest['name'], manifest['version']
 if not isinstance(name, str) or not re.fullmatch(r'[a-z0-9][a-z0-9-]{0,63}', name):
@@ -24,16 +33,16 @@ for destination, parent in [(package, root / 'packages'), (index, root / 'index'
 buffer = io.BytesIO()
 with zipfile.ZipFile(buffer, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
     for path in sorted(source.rglob('*')):
-        if not path.is_file():
-            continue
         if path.is_symlink():
             raise SystemExit('Example may not contain symlinks')
+        if not path.is_file():
+            continue
         info = zipfile.ZipInfo(name + '/' + path.relative_to(source).as_posix(), (2026, 11, 12, 0, 0, 0))
         info.create_system = 3
         info.compress_type = zipfile.ZIP_DEFLATED
-        info.external_attr = (0o100755 if path.name == 'server.sh' else 0o100644) << 16
+        info.external_attr = (0o100755 if path.stat().st_mode & 0o111 else 0o100644) << 16
         archive.writestr(info, path.read_bytes())
-record = {key: manifest[key] for key in ['name', 'version', 'description', 'author', 'taku']}
+record = {key: manifest[key] for key in ['name', 'version', 'description', 'author', 'taku'] if key in manifest}
 archive_bytes = buffer.getvalue()
 record.update(package=package.relative_to(root).as_posix(), sha256=hashlib.sha256(archive_bytes).hexdigest())
 index_bytes = (json.dumps(record, indent=2) + '\n').encode()

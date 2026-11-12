@@ -1,0 +1,16 @@
+{
+  "name": "status-break-reminder",
+  "version": "1.0.1",
+  "description": "Reusable status reminder that prints: Take a short break.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Status Break Reminder",
+    "shortDescription": "Prints a short break reminder"
+  },
+  "taku": {
+    "capabilities": [
+      "shell-script"
+    ],
+    "permissions": []
+  }
+}
